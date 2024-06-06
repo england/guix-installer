@@ -38,7 +38,7 @@ jobs:
           # This is necessary to authorize the substitute server
           wget https://substitutes.nonguix.org/signing-key.pub
           mv signing-key.pub nonguix-signing-key.pub
-          guix archive --authorize < nonguix-signing-key.pub
+          sudo guix archive --authorize < nonguix-signing-key.pub
 
       - name: Build ISO
         run: |
@@ -69,4 +69,4 @@ jobs:
           files: guix-installer-${{ env.RELEASE_TAG }}.iso
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          GITHUB_REPOSITORY: SystemCrafters/guix-installer
+          GITHUB_REPOSITORY: england/guix-installer
